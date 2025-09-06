@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard • QURASHI Portal</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>QURASHI Dashboard</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="order.html">New Order</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="cards">
+      <div class="card">
+        <h2>Recent Orders</h2>
+        <table>
+          <tr><th>ID</th><th>Service</th><th>Status</th><th>Date</th></tr>
+          <tr><td>#1001</td><td>Facebook Ads</td><td>Completed</td><td>Sep 05</td></tr>
+          <tr><td>#1002</td><td>Insta Campaign</td><td>Pending</td><td>Sep 06</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Payments</h2>
+        <p><b>JazzCash:</b> 03354370203 (Noraiz Ejaz)</p>
+        <a class="btn-primary" href="#">Add Funds</a>
+      </div>
+
+      <div class="card">
+        <h2>Support</h2>
+        <p>Need help? Contact us:</p>
+        <a class="btn-primary" href="https://wa.me/03180876452">WhatsApp</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> QURASHI</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
