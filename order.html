@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order • QURASHI Portal</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>QURASHI Orders</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="order.html">New Order</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Place New Order</h2>
+      <form id="orderForm">
+        <label for="service">Select Service</label>
+        <select id="service" required>
+          <option value="">-- Choose --</option>
+          <option value="tiktok_likes">TikTok Likes – ₨4.99/1000</option>
+          <option value="tiktok_views">TikTok Views – ₨6.99/1000</option>
+          <option value="instagram_followers">Instagram Followers – ₨9.99/1000</option>
+          <option value="youtube_views">YouTube Views – ₨12.99/1000</option>
+          <option value="facebook_likes">Facebook Likes – ₨8.99/1000</option>
+        </select>
+
+        <label for="link">Profile/Video Link</label>
+        <input type="url" id="link" required>
+
+        <label for="quantity">Quantity (per 1000)</label>
+        <input type="number" id="quantity" value="1" min="1" required>
+
+        <p class="total">Total Price: ₨ <span id="totalPrice">0</span></p>
+        <button type="submit" class="btn-primary">Place Order</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const rates = {tiktok_likes:4.99,tiktok_views:6.99,instagram_followers:9.99,youtube_views:12.99,facebook_likes:8.99};
+    const qty = document.getElementById('quantity');
+    const svc = document.getElementById('service');
+    const total = document.getElementById('totalPrice');
+    function calc(){ total.textContent = ((rates[svc.value]||0) * (qty.value||0)).toFixed(2);}
+    svc.addEventListener('change',calc); qty.addEventListener('input',calc);
+    document.getElementById('orderForm').addEventListener('submit',e=>{e.preventDefault();alert('✅ Order placed!');});
+  </script>
+</body>
+</html>
